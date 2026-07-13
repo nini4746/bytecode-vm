@@ -1,0 +1,7 @@
+clox
+build/
+*.o
+*.d
+
+# fetched external: official craftinginterpreters test suite
+test/
