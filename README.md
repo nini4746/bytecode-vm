@@ -24,6 +24,30 @@
 
 완료 조건: 책의 Lox 언어 테스트 스위트 통과.
 
+## 검증 결과 (2026-07-16)
+
+공식 craftinginterpreters Dart 하네스로 **246/246 통과 (568 expectations)**.
+
+재현 절차 (하네스는 Dart 2 전용이라 Dart 3에서 실행 불가):
+
+```bash
+# 1. 공식 저장소 + Dart 2.19.6 SDK (arm64 리눅스 기준)
+curl -sL -o ci.tar.gz https://github.com/munificent/craftinginterpreters/archive/refs/heads/master.tar.gz
+curl -sL -o dartsdk.zip https://storage.googleapis.com/dart-archive/channels/stable/release/2.19.6/sdk/dartsdk-linux-arm64-release.zip
+tar xzf ci.tar.gz && unzip -q dartsdk.zip
+
+# 2. clox 빌드 (clang 없으면 CC=gcc)
+make CC=gcc
+
+# 3. 하네스 실행
+cd craftinginterpreters-master
+../dart-sdk/bin/dart pub get --directory tool
+../dart-sdk/bin/dart tool/bin/test.dart clox --interpreter <clox 경로>
+# => All 246 tests passed (568 expectations).
+```
+
+`test/`는 위 공식 저장소의 스위트 사본 (gitignore, 로컬 참조용).
+
 ## 변형 옵션 (Java 배경 활용)
 
 책 대신/이후에 "JVM 클래스파일 파서 + 미니 JVM 바이트코드 인터프리터" - 매일 쓰는 언어의 밑바닥 파기. CHIP-8(토이 1번)과 개념 연결: 둘 다 가상 머신, 규모만 다름.
