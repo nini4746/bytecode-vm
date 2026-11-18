@@ -169,5 +169,7 @@ bytecode-vm/
 
 - [docs/SRS.md](docs/SRS.md) - 요구사항 명세
 - [docs/SDS.md](docs/SDS.md) - 설계 명세: 구성도, 시퀀스, 자료구조, 모듈
+- [docs/adr/](docs/adr/README.md) - 설계 결정 기록
+- [CHANGELOG.md](CHANGELOG.md) - 변경 이력
 - [명세 (SPEC)](.planning/SPEC.md) - 요구사항 R1~R14, 범위, 엣지 처리 기록
 - [plans](.planning/plans/) - 챕터별 구현 plan 8개 (01-chunk-vm-skeleton ~ 08-classes-inheritance-final)
